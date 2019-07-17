@@ -1,9 +1,8 @@
 import React from "react";
-import axios from 'axios';
+import axios from "axios";
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
-const UserForm = ({errors, touched}) => {
-
+const UserForm = ({ errors, touched }) => {
   return (
     <Form>
       <Field type="text" name="name" placeholder="Enter your name" />
@@ -33,17 +32,30 @@ export default withFormik({
   },
 
   validationSchema: Yup.object().shape({
-      name: Yup.string().min(3, "Name must be at least 3 characters").max(18, "Password cannot be longer than 18 characters").required(),
-      email: Yup.string().email().required(),
-      password: Yup.string().min(8, "Password must be at lease 8 characters").required(),
-      tos: Yup.bool().nullable().required("You must accept the terms of service")
+    name: Yup.string()
+      .min(3, "Name must be at least 3 characters")
+      .max(18, "Password cannot be longer than 18 characters")
+      .required(),
+    email: Yup.string()
+      .email()
+      .required(),
+    password: Yup.string()
+      .min(8, "Password must be at lease 8 characters")
+      .required(),
+    tos: Yup.bool()
+      .nullable()
+      .required("You must accept the terms of service")
   }),
 
   handleSubmit(values) {
     console.log(values);
-    console.log(values.tos)
-    axios.post("https://reqres.in/api/users", values)
-    .then(res => console.log(res))
-    .catch(err => console.log(err.response))
+    console.log(values.tos);
+    axios
+      .post("https://reqres.in/api/users", values)
+      .then(res => {
+        console.log(res);
+        window.alert(`${res.data.name} was created successfully!`)
+      })
+      .catch(err => console.log(err.response));
   }
 })(UserForm);
