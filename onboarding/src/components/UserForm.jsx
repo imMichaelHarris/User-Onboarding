@@ -1,11 +1,11 @@
 import React from "react";
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
-const UserForm = ({errors}) => {
+const UserForm = ({errors, touched}) => {
   return (
     <Form>
       <Field type="text" name="name" placeholder="Enter your name" />
-      <p>{errors.name}</p>
+      {touched.name && errors.name && <p>{errors.name}</p>}
       <Field type="email" name="email" placeholder="Enter your email" />
       <Field
         type="password"
