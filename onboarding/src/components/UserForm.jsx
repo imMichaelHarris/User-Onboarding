@@ -12,6 +12,7 @@ const UserForm = ({errors, touched}) => {
         name="password"
         placeholder="Enter your password"
       />
+      {touched.password && errors.password && <p>{errors.password}</p>}
       <Field type="checkbox" name="tos" />
       <button>Submit</button>
     </Form>
@@ -31,7 +32,7 @@ export default withFormik({
   validationSchema: Yup.object().shape({
       name: Yup.string().min(3, "Name must be at least 3 characters").required(),
       email: Yup.string().email().required(),
-      password: Yup.string().min(8).required(),
+      password: Yup.string().min(8, "Password must be at lease 8 characters").required(),
       tos: Yup.bool()
   }),
 
