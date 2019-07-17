@@ -12,4 +12,13 @@ const UserForm = () => {
     );
 };
 
-export default withFormik()(UserForm);
+export default withFormik({
+    mapPropsToValues({name, email, password, tos}){
+        return {
+            name: name || "",
+            email: email || "",
+            password: password || "",
+            tos: tos || ""
+        }
+    }
+})(UserForm);
