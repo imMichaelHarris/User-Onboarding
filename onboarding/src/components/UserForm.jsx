@@ -4,18 +4,30 @@ import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
 const UserForm = ({ errors, touched }) => {
   return (
-    <Form>
-      <Field type="text" name="name" placeholder="Enter your name" />
-      {touched.name && errors.name && <p>{errors.name}</p>}
-      <Field type="email" name="email" placeholder="Enter your email" />
-      <Field
-        type="password"
-        name="password"
-        placeholder="Enter your password"
-      />
-      {touched.password && errors.password && <p>{errors.password}</p>}
-      <Field type="checkbox" name="tos" />
-      {touched.tos && errors.tos && <p>{errors.tos}</p>}
+    <Form className="user-form">
+        <legend>User Form</legend>
+      <label>
+        Name
+        <Field autoComplete="off"type="text" name="name" placeholder="Enter your name" />
+        {touched.name && errors.name && <p>{errors.name}</p>}
+      </label>
+      <label>
+        Email
+        <Field type="email" name="email" placeholder="Enter your email" />
+      </label>
+      <label>Password
+        <Field
+          type="password"
+          name="password"
+          placeholder="Enter your password"
+        />
+        {touched.password && errors.password && <p>{errors.password}</p>}
+      </label>
+      <label htmlFor="">
+        I've read and accept the Terms of Service
+        <Field type="checkbox" name="tos" />
+        {touched.tos && errors.tos && <p>{errors.tos}</p>}
+      </label>
       <button>Submit</button>
     </Form>
   );
@@ -54,7 +66,7 @@ export default withFormik({
       .post("https://reqres.in/api/users", values)
       .then(res => {
         console.log(res);
-        window.alert(`${res.data.name} was created successfully!`)
+        window.alert(`${res.data.name} was created successfully!`);
       })
       .catch(err => console.log(err.response));
   }
