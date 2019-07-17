@@ -20,5 +20,8 @@ export default withFormik({
             password: password || "",
             tos: tos || ""
         }
+    },
+    handleSubmit(values){
+        console.log(values);
     }
 })(UserForm);
