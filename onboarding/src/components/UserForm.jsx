@@ -7,15 +7,15 @@ const UserForm = ({ errors, touched }) => {
     <Form className="user-form">
         <legend>User Form</legend>
       <label>
-        Name
+        Name:
         <Field autoComplete="off"type="text" name="name" placeholder="Enter your name" />
         {touched.name && errors.name && <p>{errors.name}</p>}
       </label>
       <label>
-        Email
+        Email:
         <Field type="email" name="email" placeholder="Enter your email" />
       </label>
-      <label>Password
+      <label>Password:
         <Field
           type="password"
           name="password"
@@ -36,8 +36,8 @@ const UserForm = ({ errors, touched }) => {
 export default withFormik({
   mapPropsToValues({ name, email, password, tos }) {
     return {
-      name: name || "",
-      email: email || "",
+      name: name || "initial value",
+      email: email || "something@yahoo.com",
       password: password || "",
       tos: tos || null
     };
