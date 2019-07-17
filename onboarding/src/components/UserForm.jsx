@@ -26,6 +26,13 @@ export default withFormik({
       tos: tos || ""
     };
   },
+
+  validationSchema: Yup.object().shape({
+      name: Yup.string().min(3).required(),
+      email: Yup.string().email().required(),
+      password: Yup.string().min(8).required(),
+      tos: Yup.bool()
+  }),
   handleSubmit(values) {
     console.log(values);
   }
