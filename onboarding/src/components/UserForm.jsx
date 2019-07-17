@@ -1,4 +1,5 @@
 import React from "react";
+import axios from 'axios';
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
 const UserForm = ({errors, touched}) => {
@@ -30,7 +31,7 @@ export default withFormik({
   },
 
   validationSchema: Yup.object().shape({
-      name: Yup.string().min(3, "Name must be at least 3 characters").required(),
+      name: Yup.string().min(3, "Name must be at least 3 characters").max(18, "Password cannot be longer than 18 characters").required(),
       email: Yup.string().email().required(),
       password: Yup.string().min(8, "Password must be at lease 8 characters").required(),
       tos: Yup.bool()
