@@ -2,10 +2,10 @@ import React from 'react';
 import { withFormik, Form, Field } from "formik";
 const Form = () => {
     return (
-        <form>
+        <Form>
 
-        </div>
+        </Form>
     );
 };
 
-export default Form;
+export default withFormik()(Form);
