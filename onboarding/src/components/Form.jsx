@@ -1,6 +1,6 @@
 import React from 'react';
 import { withFormik, Form, Field } from "formik";
-const Form = () => {
+const UserForm = () => {
     return (
         <Form>
             <Field type="text" name="name" placeholder="Enter your name" />
@@ -12,4 +12,4 @@ const Form = () => {
     );
 };
 
-export default withFormik()(Form);
+export default withFormik()(UserForm);
