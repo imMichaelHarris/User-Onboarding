@@ -1,0 +1,85 @@
+.App {
+  text-align: center;
+  color: #fff;
+  background: #536976; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to bottom,
+    #292e49,
+    #536976
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to bottom,
+    #292e49,
+    #536976
+  );
+  height: 100vh;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.user-form {
+ position: absolute;
+ top: 20%;
+ left: 50%;
+ transform: translate(-50%, -20%);
+  background: rgba(0, 0, 0, 0.356);
+  box-shadow: 0 5px 20px rgb(255, 255, 255);
+  height: 500px;
+  width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  font-size: 1.5rem;
+}
+
+.user-form input {
+  padding: 10px;
+  border: none;
+  margin: 0 10px;
+  border-radius: 20px;
+  transition: .3s all ease-in-out;
+}
+.user-form input:focus {
+  outline: none;
+  padding: 10px 15px;
+}
+.user-form label p {
+  color: red;
+  font-size: 0.8rem;
+  /* background: rgba(26, 25, 25, 0.37); */
+  width: 50%;
+  margin: 0 auto;
+  border-radius: 20px;
+  padding: 10px;
+}
+.user-form legend{
+  font-size: 2.5rem;
+  letter-spacing: 5px;
+}
+.user-form button {
+  letter-spacing: 2px;
+  color: #fff;
+  width: 200px;
+  margin: 0 auto;
+  font-size: 1.6rem;
+  border: none;
+  border-radius: 50px;
+  padding: 10px;
+  transition: .3s ease-in-out;
+  background: #0052D4;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to top, #6FB1FC, #4364F7, #0052D4);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top, #6FB1FC, #4364F7, #0052D4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
+
+}
+.user-form input[type="checkbox"]:hover {
+  cursor: pointer;
+}
+.user-form button:hover {
+  transform: scale(1.05) translateY(-5px);
+  cursor: pointer;
+}
